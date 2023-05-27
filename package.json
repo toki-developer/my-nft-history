@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@flipsidecrypto/sdk": "^2.0.0",
+    "@vercel/analytics": "^1.0.1",
     "alchemy-sdk": "^2.8.3",
     "date-fns": "^2.30.0",
     "next": "^13.4.4",

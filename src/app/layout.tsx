@@ -1,5 +1,6 @@
 import "tailwindcss/tailwind.css";
 
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="bg-black text-white h-screen">{children}</body>
+      <body className="bg-black text-white h-screen">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
