@@ -1,5 +1,6 @@
 declare namespace NodeJS {
   interface ProcessEnv {
-    SAMPLE_ENV: string;
+    FLIPSIDE_API_KEY: string;
+    ALCHEMY_API_KEY: string
   }
 }

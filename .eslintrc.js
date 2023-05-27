@@ -23,6 +23,8 @@ module.exports = {
       { paths: [{ name: "react", importNames: ["default"] }] },
     ],
 
+    "@next/next/no-img-element": "off",
+
     // react
     "react/display-name": "error",
     "react/jsx-handler-names": [
