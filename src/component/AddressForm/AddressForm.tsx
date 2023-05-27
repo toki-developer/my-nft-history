@@ -1,7 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+
+import { Loading } from "../Loaidng/Loading";
 
 const addressFormat = {
   pattern: {
@@ -18,11 +21,22 @@ export const AddressForm = () => {
     register,
   } = useForm<{ address: string }>();
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const handleClick = handleSubmit((v) => {
+    setIsLoading(true);
     router.push(`/${v.address}`);
   });
+
+  if (isLoading) {
+    return (
+      <div>
+        <Loading />
+        <p className="mt-4 animate-pulse">画面遷移中</p>
+      </div>
+    );
+  }
 
   return (
     <div className="relative">

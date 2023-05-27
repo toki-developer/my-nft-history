@@ -13,12 +13,14 @@ export default function Error({
     console.error(error);
   }, [error]);
 
+  reset;
+
   return (
     <div className="text-lg text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-      <h2 className="text-xl font-bold">エラーが発生しました。🙇‍♀️</h2>
-      <button className=" underline" onClick={() => reset()}>
-        リトライ
-      </button>
+      <div>
+        <h2 className="text-xl font-bold">エラーが発生しました。🙇‍♀️</h2>
+        <p>リロードして、再度お試しください。</p>
+      </div>
     </div>
   );
 }
