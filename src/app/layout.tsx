@@ -3,8 +3,8 @@ import "tailwindcss/tailwind.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: "Welcome to Next.js",
+  title: "NFT史",
+  description: "今までに手に入れてきたNFTの歴史",
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="bg-black text-white">{children}</body>
+      <body className="bg-black text-white h-screen">{children}</body>
     </html>
   );
 }

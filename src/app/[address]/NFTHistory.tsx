@@ -14,7 +14,7 @@ export const NFTHistory = async ({ address }: { address: string }) => {
             <div
               key={nft.contractAddress}
               className={`${
-                p == 0 ? "mb-40" : p == 1 ? "my-20" : "mt-40"
+                p == 0 ? "pb-40" : p == 1 ? "py-20" : "pt-40"
               } text-center relative mb-4`}
             >
               <p
@@ -40,13 +40,17 @@ export const NFTHistory = async ({ address }: { address: string }) => {
               {nft.imageUrl ? (
                 <img
                   src={nft.imageUrl}
-                  alt={nft.name}
-                  className=" w-24 h-24 mx-auto"
+                  alt={"Image Not Found"}
+                  className=" w-24 h-24 mx-auto object-cover"
                 />
               ) : (
-                <div />
+                <div className=" w-24 h-24 mx-auto" />
               )}
-              {nft.name ? <p className="mt-4">{nft.name}</p> : <div />}
+              {nft.name ? (
+                <p className="mt-4 h-5 text-sm">{nft.name}</p>
+              ) : (
+                <p className="mt-4 h-5 text-sm">情報が見つかりません</p>
+              )}
             </div>
           );
         })}
