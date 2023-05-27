@@ -1,3 +1,5 @@
+import "tailwindcss/tailwind.css";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,18 +8,13 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="ja">
-      <body>
-        <header>header</header>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
