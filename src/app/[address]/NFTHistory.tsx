@@ -18,7 +18,7 @@ export const NFTHistory = async ({ address }: { address: string }) => {
               } text-center relative mb-4`}
             >
               <p
-                className={`absolute text-[4px] md:text-base ${
+                className={`absolute text-[6px] md:text-base ${
                   p == 0
                     ? "bottom-[200px] -left-[74px] md:-left-[150px]"
                     : p == 1
@@ -47,9 +47,9 @@ export const NFTHistory = async ({ address }: { address: string }) => {
                 <div className=" w-24 h-24 mx-auto" />
               )}
               {nft.name ? (
-                <p className="mt-4 h-5 text-[3px] md:text-sm">{nft.name}</p>
+                <p className="mt-4 h-5 text-[6px] md:text-sm">{nft.name}</p>
               ) : (
-                <p className="mt-4 h-5 text-[3px] md:text-sm">
+                <p className="mt-4 h-5 text-[6px] md:text-sm">
                   情報が見つかりません
                 </p>
               )}
