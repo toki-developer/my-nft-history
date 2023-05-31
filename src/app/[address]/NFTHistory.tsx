@@ -5,9 +5,9 @@ export const NFTHistory = async ({ address }: { address: string }) => {
   const nftList = await getNFTList(address);
 
   return (
-    <div className="overflow-hidden w-[700px] mx-auto flex justify-between items-stretch">
+    <div className="overflow-hidden w-72 md:w-[700px] mx-auto flex justify-between items-stretch">
       <div className="bg-white w-1" />
-      <div className="grid grid-cols-3 w-[510px] my-20">
+      <div className="grid grid-cols-3 w-52 md:w-[510px] my-20">
         {nftList.map((nft, i) => {
           const p = i % 3;
           return (
@@ -18,12 +18,12 @@ export const NFTHistory = async ({ address }: { address: string }) => {
               } text-center relative mb-4`}
             >
               <p
-                className={`absolute ${
+                className={`absolute text-[4px] md:text-base ${
                   p == 0
-                    ? "bottom-[200px] -left-[150px]"
+                    ? "bottom-[200px] -left-[74px] md:-left-[150px]"
                     : p == 1
-                    ? "bottom-[120px] -left-[320px]"
-                    : "bottom-[40px] -left-[490px]"
+                    ? "bottom-[120px] -left-[144px] md:-left-[320px]"
+                    : "bottom-[40px] -left-[214px] md:-left-[490px]"
                 } `}
               >
                 {format(new Date(nft.data), "yyyy年M月d日")}
@@ -41,15 +41,17 @@ export const NFTHistory = async ({ address }: { address: string }) => {
                 <img
                   src={nft.imageUrl}
                   alt={"Image Not Found"}
-                  className=" w-24 h-24 mx-auto object-cover"
+                  className=" w-14 h-14 md:w-24 md:h-24 mx-auto object-cover"
                 />
               ) : (
                 <div className=" w-24 h-24 mx-auto" />
               )}
               {nft.name ? (
-                <p className="mt-4 h-5 text-sm">{nft.name}</p>
+                <p className="mt-4 h-5 text-[3px] md:text-sm">{nft.name}</p>
               ) : (
-                <p className="mt-4 h-5 text-sm">情報が見つかりません</p>
+                <p className="mt-4 h-5 text-[3px] md:text-sm">
+                  情報が見つかりません
+                </p>
               )}
             </div>
           );

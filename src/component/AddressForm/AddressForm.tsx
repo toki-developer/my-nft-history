@@ -40,17 +40,17 @@ export const AddressForm = () => {
 
   return (
     <div className="relative">
-      <div className="flex">
+      <div className="flex flex-col md:flex-row gap-2 w-screen justify-center">
         <input
           {...register("address", { ...addressFormat })}
-          className="bg-black  border rounded-md border-gray-700 w-[400px] pl-4 text-xl py-1"
+          className="bg-black  border rounded-md border-gray-700 mx-4 md:w-[400px] px-4 text-sm md:text-xl py-3 md:py-1"
           placeholder="Wallet アドレスを入力してください"
         />
         <button
-          className="flex-none ml-2 border rounded-sm px-2 border-blue-500 text-blue-500"
+          className="flex-none border rounded-sm px-4 py-2 md:px-2 w-fit mx-auto md:mx-0 border-blue-500 text-blue-500"
           onClick={handleClick}
         >
-          送信
+          検索
         </button>
       </div>
       {errors.address?.message ? (

@@ -11,7 +11,7 @@ type Props = {
 export default async function Page({ params: { address } }: Props) {
   return (
     <div className="my-20">
-      <p className="text-center mb-20 text-3xl">
+      <p className="text-center mb-20 font-bold  md:text-3xl">
         {addShortStr(address)} の <span className="font-bold">NFT </span>史
       </p>
       <Suspense fallback={<LoadingFallback />}>
@@ -26,8 +26,10 @@ const LoadingFallback = () => {
   return (
     <div>
       <Loading />
-      <p className="text-center text-lg mt-4">
-        データ検索中です。しばらくお待ちください。
+      <p className="text-center md:text-lg mt-4">
+        データ検索中です。
+        <br />
+        しばらくお待ちください。
       </p>
     </div>
   );
