@@ -78,6 +78,9 @@ const getFlispside = cache(async (address: string) => {
     sql,
     maxAgeMinutes: 30,
   });
+  if (result.error) {
+    console.error(result.error.message);
+  }
   return result;
 });
 
