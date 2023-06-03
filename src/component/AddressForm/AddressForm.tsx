@@ -39,13 +39,20 @@ export const AddressForm = () => {
   }
 
   return (
-    <div className="relative">
-      <div className="flex flex-col md:flex-row gap-2 w-screen justify-center">
-        <input
-          {...register("address", { ...addressFormat })}
-          className="bg-black  border rounded-md border-gray-700 mx-4 md:w-[400px] px-4 text-sm md:text-xl py-3 md:py-1"
-          placeholder="Wallet アドレスを入力してください"
-        />
+    <div>
+      <div className="flex flex-col md:flex-row gap-8 w-screen justify-center">
+        <div className="relative w-screen md:w-auto px-8 md:px-0">
+          <input
+            {...register("address", { ...addressFormat })}
+            className="bg-black h-full  border rounded-md border-gray-700 w-full md:mx-0 md:w-[400px] px-4 text-sm md:text-xl py-3 md:py-1"
+            placeholder="Wallet アドレスを入力してください"
+          />
+          {errors.address?.message ? (
+            <p className="absolute -bottom-6 md:-bottom-8 text-red-500 text-sm ">
+              {errors.address.message}
+            </p>
+          ) : null}
+        </div>
         <button
           className="flex-none border rounded-sm px-4 py-2 md:px-2 w-fit mx-auto md:mx-0 border-blue-500 text-blue-500"
           onClick={handleClick}
@@ -53,11 +60,6 @@ export const AddressForm = () => {
           検索
         </button>
       </div>
-      {errors.address?.message ? (
-        <p className="absolute -bottom-8 text-red-500 text-sm">
-          {errors.address.message}
-        </p>
-      ) : null}
     </div>
   );
 };

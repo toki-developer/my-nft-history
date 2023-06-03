@@ -2,18 +2,10 @@
 
 import { useEffect } from "react";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) {
+export default function Error({ error }: { error: Error; reset: () => void }) {
   useEffect(() => {
-    console.error(error);
+    console.error("error.tsx useEffect Error:", error.name, error.message);
   }, [error]);
-
-  reset;
 
   return (
     <div className="text-lg text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

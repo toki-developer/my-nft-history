@@ -4,6 +4,12 @@ import { getNFTList } from "src/utils/getNFTList";
 export const NFTHistory = async ({ address }: { address: string }) => {
   const nftList = await getNFTList(address);
 
+  if (nftList.length == 0) {
+    return (
+      <p className="text-center font-bold">NFTのデータが見つかりませんでした</p>
+    );
+  }
+
   return (
     <div className="overflow-hidden w-72 md:w-[700px] mx-auto flex justify-between items-stretch">
       <div className="bg-white w-1" />

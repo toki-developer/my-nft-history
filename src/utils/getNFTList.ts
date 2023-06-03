@@ -1,3 +1,5 @@
+import "server-only";
+
 import type { QueryResultSet } from "@flipsidecrypto/sdk";
 import type { NftMetadataBatchToken } from "alchemy-sdk";
 import { cache } from "react";
@@ -22,10 +24,9 @@ export type NFT = {
 };
 
 export const getNFTList = cache(async (address: string): Promise<NFT[]> => {
-  const result = await getFlispside(address);
+  const records = await getFlispside(address);
 
-  const records = result.records as FlipsideResultType[];
-  records.sort((a, b) => {
+  records?.sort((a, b) => {
     return a.block_timestamp > b.block_timestamp ? 1 : -1;
   });
 
@@ -76,12 +77,18 @@ const getFlispside = cache(async (address: string) => {
 
   const result: QueryResultSet = await flipside.query.run({
     sql,
-    maxAgeMinutes: 30,
+    maxAgeMinutes: 1440,
   });
-  if (result.error) {
-    console.error(result.error.message);
+
+  if (!result.records && !result.error) {
+    console.error("getFlipside Error: result.records Null");
+    return [];
   }
-  return result;
+
+  if (result.error) {
+    console.error("getFlipside Error:", result.error.message, sql);
+  }
+  return result.records as FlipsideResultType[];
 });
 
 const formatFlipsideData = (

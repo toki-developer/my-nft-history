@@ -4,6 +4,10 @@ import { addShortStr } from "src/utils/addShortStr";
 
 import { NFTHistory } from "./NFTHistory";
 
+// export const revalidate = 86400;
+// export const dynamic = "force-static";
+// export const fetchCache = "force-cache";
+
 type Props = {
   params: { address: string };
 };
